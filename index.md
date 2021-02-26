@@ -1,37 +1,19 @@
-## Welcome to GitHub Pages
+Unmanic - Library Optimiser  
+===========================
 
-You can use the [editor on GitHub](https://github.com/Josh5/unmanic/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+![UNMANIC - Library Optimiser](https://github.com/Josh5/unmanic/raw/master/logo.png)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Unmanic is a simple tool for optimising your video library to a single, uniform format. 
 
-### Markdown
+Unmanic provides you with the following main functions:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+ - A scheduler built in to scan your whole library for files that do not conform to your configured video presets. Videos found with incorrect formats are then queued for conversion.
 
-```markdown
-Syntax highlighted code block
+ - A folder watchdog. When a video file is modified or a new file is added in your library, Unmanic is able to check that video against your configured video presets. Like the first function, if this video is not formatted correctly it is added to a queue for conversion.
 
-# Header 1
-## Header 2
-### Header 3
+ - A handler to manage multiple file conversion tasks at a time using ffmpeg
 
-- Bulleted
-- List
+ - A Web UI to easily configure your preferred video presets and monitor the progress of your library conversion.
 
-1. Numbered
-2. List
+Simply point Unmanic at your library and let it manage it.
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Josh5/unmanic/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
