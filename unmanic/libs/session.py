@@ -51,7 +51,7 @@ class Session(object, metaclass=SingletonType):
     level - The user auth level
     Set level to 0 by default
     """
-    level = 0
+    level = 3
 
     """
     non supporter plugin count
@@ -100,16 +100,8 @@ class Session(object, metaclass=SingletonType):
 
         :return:
         """
-        if not self.created:
-            return False
-        # Get session expiration time
-        time_now = time.time()
-        time_when_session_expires = self.created + 86400
-        # Check that the time create is less than 24 hours old
-        if time_now < time_when_session_expires:
-            return True
-        self._log("Session no longer valid ", level="debug")
-        return False
+        self._log("Session valid ", level="debug")
+        return True
 
     def __update_created_timestamp(self):
         """

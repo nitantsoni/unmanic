@@ -74,31 +74,10 @@ class SubtitleHandle(object):
                 supported_subtitles = self.container.supported_subtitles()
                 # TODO: Select best/or configured subtitle codec, then fetch that codec class.
                 #       Use the subtitle class rather than this array
-                if stream['codec_name'] in supported_subtitles:
-                    # If dest container supports the current subtitle codec, just copy it
-                    self.subtitle_args['streams_to_encode'] = self.subtitle_args['streams_to_encode'] + [
-                        "-c:s:{}".format(subtitle_tracks_count), "copy"
-                    ]
-                    subtitle_tracks_count += 1
-                else:
-                    # The dest container does not support the current subtitle stream.
-                    # Transcode the stream to a format that the destination container does support
-                    # TODO: Check if it can be re-encoded. It is not possible to switch between image and text format
-                    # If dest container supports the current subtitle codec, just copy it
-                    # unsupported subtitles will need to be removed, otherwise ffmpeg will not convert
-                    unsupported_subtitles = self.container.unsupported_subtitles()
-                    if stream['codec_name'] in unsupported_subtitles:
-                        continue
-                    else:
-                        self.subtitle_args['streams_to_encode'] = self.subtitle_args['streams_to_encode'] + [
-                            "-c:s:{}".format(subtitle_tracks_count), "{}".format(supported_subtitles[0])
-                        ]
-                        subtitle_tracks_count += 1
-
-                # Map this stream if it was marked above as compatible with the destination
-                self.subtitle_args['streams_to_map'] = self.subtitle_args['streams_to_map'] + [
-                    "-map", "0:{}".format(stream['index'])
+                self.subtitle_args['streams_to_encode'] = self.subtitle_args['streams_to_encode'] + [
+                    "-c:s:{}".format(subtitle_tracks_count), "copy"
                 ]
+                subtitle_tracks_count += 1
 
         return self.subtitle_args
 
